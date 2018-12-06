@@ -10,7 +10,7 @@ Portainer is a web UI for managing your docker containers.
 
 Start Portainer as a Docker Swarm service by running the following command on your manager node:
 ```bash
-$ docker service deploy -c docker-compose.yml prtnr
+$ docker stack deploy -c docker-compose.yml prtnr
 ```
 
 > Note, that this service uses a *required* manager-node placement constraint 
