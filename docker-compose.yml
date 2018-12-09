@@ -22,6 +22,8 @@ services:
       portainer_agent:
         aliases:
           - agent
+    ports:
+        - "9001:9001"
     deploy:
       << : *default-deploy
       mode: global
