@@ -30,29 +30,6 @@ services:
       placement:
         constraints: [node.platform.os == linux]
 
-  portainer:
-    image: portainer/portainer
-    ports:
-      - "9000:9000"
-    networks:
-      portainer_agent:
-        aliases:
-          - portainer
-    command: -H "tcp://tasks.agent:9001" --tlsskipverify
-    volumes:
-      - portainer_data:/data
-    deploy:
-      << : *default-deploy
-      replicas: 1
-      placement:
-        constraints:
-          - "node.role == manager"
-    depends_on:
-      - agent
-          
-volumes:
-  portainer_data:
-
 networks:
   portainer_agent:
     driver: overlay
