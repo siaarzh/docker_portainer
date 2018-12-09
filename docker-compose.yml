@@ -23,7 +23,10 @@ services:
         aliases:
           - agent
     ports:
-        - "9001:9001"
+        - target: 9001
+          published: 9001
+          protocol: tcp
+          mode: host
     deploy:
       << : *default-deploy
       mode: global
